@@ -8,7 +8,11 @@ import java.util.List;
 import java.util.Optional;
 
 public class MemberService {
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     //회원가입
     public long join(Member member) { // Optional이 있으면 좋지 않아서 = 가지 없애고 findByName에 바로 ifPresent를 붙일수 있다
