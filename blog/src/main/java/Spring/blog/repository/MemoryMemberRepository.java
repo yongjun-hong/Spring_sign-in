@@ -1,9 +1,10 @@
 package Spring.blog.repository;
 
 import Spring.blog.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
-
+//@Repository // Spring이 MemoryMemberRepository를 레포지토리로 인식을 한다.
 public class MemoryMemberRepository implements MemberRepository {
     private static Map<Long, Member> store = new HashMap<>();
     private static long sequence = 0L;

@@ -11,3 +11,4 @@ public class BlogApplication {
 	}
 
 }
+ // 이것이 메인메소드다.
