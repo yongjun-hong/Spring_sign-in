@@ -3,15 +3,19 @@ package Spring.blog.service;
 import Spring.blog.domain.Member;
 import Spring.blog.repository.MemberRepository;
 import Spring.blog.repository.MemoryMemberRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+
 //@Service // Service를 넣으면 Spring이 자동적으로 MemeberService를 컨테이너에 넣어준다.
+@Transactional
 public class MemberService {
     private final MemberRepository memberRepository;
-//    @Autowired // Aurowired가 있으면 Repository가 필요한 것을 Spring이 알아챈다.
+
+    //    @Autowired // Aurowired가 있으면 Repository가 필요한 것을 Spring이 알아챈다.
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
@@ -30,11 +34,11 @@ public class MemberService {
                 });
     }
 
-    public List<Member> findMembers(){
+    public List<Member> findMembers() {
         return memberRepository.findAll();
     }
 
-    public Optional<Member> findOne(Long memberId){
+    public Optional<Member> findOne(Long memberId) {
         return memberRepository.findById(memberId);
     }
 
